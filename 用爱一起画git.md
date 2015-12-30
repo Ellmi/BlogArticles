@@ -36,7 +36,7 @@ index: 这是我在项目组里讲过的一次git session,在此将所有slides�
     
     * 可以利用 `cat-file -t SHA-1-of-one-object` 查看一个对象的数据类型, SHA-1-of-one-object 的值为你看到一个objects下新增的文件的子目录+文件名
 
-* 第一次提交后git的对象(blog,tree,commit)和引用(head,branch)间的关系组织如下图,图中已表明每一个对象和引用分别对应的事物
+* 第一次提交后git的对象(blob,tree,commit)和引用(head,branch)间的关系组织如下图,图中已表明每一个对象和引用分别对应的事物
 
 * 本场景命令: ** git add . ** ; ** git commit -m "first commit" **
 
