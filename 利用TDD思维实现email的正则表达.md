@@ -34,14 +34,14 @@ IDE：idea
 
 * 邮件地址中必须包含一个‘@’符号，即该正则需要求邮件中必须含‘@’符。
 
-``` java
+````` java
 @Test
 public void shouldHasAtMarkInEmail() {
     assertTrue("Should has a @ mark in the middle!", Pattern.matches(emailRegex, "yanmin@test.com"));
     assertFalse("Should has a @ mark in the middle!", Pattern.matches(emailRegex, "asdfhj"));
     assertFalse("Should has a @ mark in the middle!", Pattern.matches(emailRegex, "@hjddh"));
-    }
-```
+}
+`````
 
 **运行测试：失败**
 
@@ -64,8 +64,8 @@ Note: 项目中只会在测试中调用所测接口而不是将功能代码写�
 @Test
 public void shouldBeSpecificCharacters() {
     assertTrue("Characters should be a-z or dot!", Pattern.matches(emailRegex, "yanmin@test.com"));
-        assertFalse("Characters should be a-z or dot!", Pattern.matches(emailRegex, "asASh@hjddh"));
-    }
+    assertFalse("Characters should be a-z or dot!", Pattern.matches(emailRegex, "asASh@hjddh"));
+}   
 ```
 
 **运行2个测试：第一个成功第二个失败**
@@ -73,7 +73,7 @@ public void shouldBeSpecificCharacters() {
 修改 `emailRegex` 如下：
 
 ``` java
- String emailRegex = "[a-z.]+@[a-z.]+";
+String emailRegex = "[a-z.]+@[a-z.]+";
 ```
 
 **运行2个测试：全部成功**
@@ -86,12 +86,12 @@ public void shouldBeSpecificCharacters() {
 ``` java
 @Test
 public void shouldHasCorrectDotMarks() {
-    		assertTrue("Wrong dot!", Pattern.matches(emailRegex, "yanmin@test.com"));
-        assertFalse("Wrong dot!", Pattern.matches(emailRegex, "asadf@hj"));
-        assertFalse("Wrong dot!", Pattern.matches(emailRegex, "asadf@.sfsd.com"));
-        assertFalse("Wrong dot!", Pattern.matches(emailRegex, "asa.df@sfsd.com"));
-        assertFalse("Wrong dot!", Pattern.matches(emailRegex, "asadf@hj..com"));
-    }
+	assertTrue("Wrong dot!", Pattern.matches(emailRegex, "yanmin@test.com"));
+	assertFalse("Wrong dot!", Pattern.matches(emailRegex, "asadf@hj"));
+	assertFalse("Wrong dot!", Pattern.matches(emailRegex, "asadf@.sfsd.com"));
+	assertFalse("Wrong dot!", Pattern.matches(emailRegex, "asa.df@sfsd.com"));
+	assertFalse("Wrong dot!", Pattern.matches(emailRegex, "asadf@hj..com"));
+}   
 ```
 
 **运行3个测试：前两个成功第三个失败**
@@ -99,7 +99,7 @@ public void shouldHasCorrectDotMarks() {
 修改 `emailRegex` 如下：
 
 ``` java
- String emailRegex = "[a-z]+@[a-z]+([a-z]+\.){1,3}[a-z]+";
+String emailRegex = "[a-z]+@[a-z]+([a-z]+\.){1,3}[a-z]+";
 ```
 
 **运行3个测试：全部成功**
@@ -112,8 +112,8 @@ public void shouldHasCorrectDotMarks() {
 ``` java
 @Test
 public void shouldHasTwoToFourCharactersAfterTheLastDot() {
-    		assertFalse("Wrong ending!", Pattern.matches(emailRegex, "ymxing@test.comcosf"))
-    }
+	assertFalse("Wrong ending!", Pattern.matches(emailRegex, "ymxing@test.comcosf"))
+}   
 ```
 
 **运行4个测试：前三个成功第四个失败**
@@ -121,7 +121,7 @@ public void shouldHasTwoToFourCharactersAfterTheLastDot() {
 修改 `emailRegex` 如下：
 
 ``` java
- String emailRegex = "[a-z]+@[a-z]+([a-z]+\.){1,3}[a-z]{2,4}";
+String emailRegex = "[a-z]+@[a-z]+([a-z]+\.){1,3}[a-z]{2,4}";
 ```
 
 **运行4个测试：全部成功**
@@ -134,8 +134,8 @@ public void shouldHasTwoToFourCharactersAfterTheLastDot() {
 ``` java
 @Test
 public void shouldHasMaxLengthFifty() {
-    		assertFalse("Wrong length", Pattern.matches(emailRegex, "asdfghjklkjasdfgdsdfdsasdfghjgfdsadfghfhgfdsasdfghjkjhgfdjhgfg@thoughtworks.com"));
-    }
+	assertFalse("Wrong length", Pattern.matches(emailRegex, "asdfghjklkjasdfgdsdfdsasdfghjgfdsadfghfhgfdsasdfghjkjhgfdjhgfg@thoughtworks.com"));
+}    
 ```
 
 **运行5个测试：前四个个成功第五个失败**
@@ -143,7 +143,7 @@ public void shouldHasMaxLengthFifty() {
 修改 `emailRegex` 如下：
 
 ``` java
- String emailRegex = "^(?=.{1,50}$)[a-z]+@([a-z]+\.){1,3}[a-z]{2,4}";
+String emailRegex = "^(?=.{1,50}$)[a-z]+@([a-z]+\.){1,3}[a-z]{2,4}";
 ```
 
 **运行5个测试：全部成功**
